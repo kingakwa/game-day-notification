@@ -26,7 +26,7 @@ This project is an alert system that sends real-time NBA game day score notifica
 
 ## **Technologies**
 - **Cloud Provider**: AWS
-- **Core Services**: SNS, Lambda, EventBridge
+- **Core Services**: SNS(simple notification service), Lambda, EventBridge
 - **External API**: NBA Game API (SportsData.io)
 - **Programming Language**: Python 3.x
 - **IAM Security**:
@@ -46,6 +46,10 @@ game-day-notifications/
 ├── .gitignore
 └── README.md                        # Project documentation
 ```
+## Architecture 
+
+<img width="1337" height="1001" alt="Image" src="https://github.com/user-attachments/assets/66c28732-c2ab-480b-a18c-f775ece9946f" />
+
 
 ## **Setup Instructions**
 
