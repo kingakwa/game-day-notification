@@ -55,8 +55,12 @@ game-day-notifications/
 
 ### **Clone the Repository**
 ```bash
-git clone https://github.com/ifeanyiro9/game-day-notifications.git
+git clone https://github.com/kingakwa/game-day-notification.git
 cd game-day-notifications
+git remote remove origin
+git remote add origin https://github.com/kingakwa/game-day-notification.git
+git branch -M main
+git push -u origin main
 ```
 
 ### **Create an SNS Topic**
@@ -77,11 +81,15 @@ cd game-day-notifications
   - Choose SMS.
   - Enter a valid phone number in international format (e.g., +1234567890).
 
+
 4. Click Create Subscription.
 5. If you added an Email subscription:
 - Check the inbox of the provided email address.
 - Confirm the subscription by clicking the confirmation link in the email.
 6. For SMS, the subscription will be immediately active after creation.
+
+<img width="914" height="357" alt="Image" src="https://github.com/user-attachments/assets/c7d57917-59fa-48cf-b4eb-127374a14972" />
+
 
 ### **Create the SNS Publish Policy**
 1. Open the IAM service in the AWS Management Console.
@@ -106,6 +114,8 @@ cd game-day-notifications
 8. Review and click Create Role.
 9. Copy and save the ARN of the role for use in the Lambda function.
 
+<img width="919" height="307" alt="Image" src="https://github.com/user-attachments/assets/c2a60ce3-76d4-4fa5-9db9-325f6146e605" />
+
 ### **Deploy the Lambda Function**
 1. Open the AWS Management Console and navigate to the Lambda service.
 2. Click Create Function.
@@ -121,6 +131,10 @@ cd game-day-notifications
 - SNS_TOPIC_ARN: the ARN of the SNS topic created earlier.
 9. Click Create Function.
 
+  <img width="402" height="407" alt="get-API-key" src="https://github.com/user-attachments/assets/60518a68-5908-4e59-88ef-d8093ecad2f9" />
+
+ <img width="374" height="240" alt="Image" src="https://github.com/user-attachments/assets/7c616bd8-5e6a-437d-bfa5-802678978dda" />
+ 
 
 ### **Set Up Automation with Eventbridge**
 1. Navigate to the Eventbridge service in the AWS Management Console.
@@ -129,13 +143,18 @@ cd game-day-notifications
 4. Set the cron schedule for when you want updates (e.g., hourly).
 5. Under Targets, select the Lambda function (gd_notifications) and save the rule.
 
+<img width="934" height="379" alt="Image" src="https://github.com/user-attachments/assets/a19f880a-7e56-45b4-b0aa-c94729a60896" />
+
 
 ### **Test the System**
 1. Open the Lambda function in the AWS Management Console.
 2. Create a test event to simulate execution.
 3. Run the function and check CloudWatch Logs for errors.
 4. Verify that SMS notifications are sent to the subscribed users.
+5. 
+<img width="878" height="311" alt="Image" src="https://github.com/user-attachments/assets/57998c18-f415-4560-b0cb-7b9f56435251" />
 
+<img width="866" height="340" alt="test-result" src="https://github.com/user-attachments/assets/f71dd16a-4e5d-4aba-a994-3afb149a5fca" />
 
 ### **What We Learned**
 1. Designing a notification system with AWS SNS and Lambda.
