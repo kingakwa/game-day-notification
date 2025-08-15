@@ -134,20 +134,20 @@ git push -u origin main
 
 ### **Set Up Automation with Eventbridge**
 1. Navigate to the Eventbridge service in the AWS Management Console.
-2. Go to Rules → Create Rule.
-3. Select Event Source: Schedule.
+2. Go to Rules → `Create Rule`.
+3. Select `Event Source`: Schedule.
 4. Set the cron schedule for when you want updates (e.g., hourly).
-5. Under Targets, select the Lambda function (gd_notifications) and save the rule.
+5. Under Targets, select the `Lambda function` (gd_notifications) and save the rule.
 
 <img width="934" height="379" alt="Image" src="https://github.com/user-attachments/assets/a19f880a-7e56-45b4-b0aa-c94729a60896" />
 
 
 ### **Test the System**
 1. Open the Lambda function in the AWS Management Console.
-2. Create a test event to simulate execution.
+2. Create a `test `event to simulate execution.
 3. Run the function and check CloudWatch Logs for errors.
-4. Verify that SMS notifications are sent to the subscribed users.
-5. 
+4. Verify that SNS notifications are sent to the subscribed users.
+   
 <img width="878" height="311" alt="Image" src="https://github.com/user-attachments/assets/57998c18-f415-4560-b0cb-7b9f56435251" />
 
 <img width="866" height="340" alt="test-result" src="https://github.com/user-attachments/assets/f71dd16a-4e5d-4aba-a994-3afb149a5fca" />
