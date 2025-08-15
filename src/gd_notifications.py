@@ -75,6 +75,7 @@ def lambda_handler(event, context):
         
     # filter only final games
     final_games = [game for game in data if game.get("Status") == "Final"]
+    
     # Include all games (final, in-progress, and scheduled)
     messages = [format_game_data(game) for game in data]
     final_message = "\n---\n".join(messages) if messages else "No games available for today."
