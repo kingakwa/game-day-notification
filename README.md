@@ -61,70 +61,70 @@ git push -u origin main
 
 ### **Create an SNS Topic**
 1. Open the AWS Management Console.
-2. Navigate to the SNS service.
-3. Click Create Topic and select Standard as the topic type.
+2. Navigate to the `SNS service`.
+3. Click `Create Topic` and select `Standard` as the topic type.
 4. Name the topic (e.g., gd_topic) and note the ARN.
-5. Click Create Topic.
+5. Click `Create Topic`.
 
 ### **Add Subscriptions to the SNS Topic**
-1. After creating the topic, click on the topic name from the list.
-2. Navigate to the Subscriptions tab and click Create subscription.
+1. After creating the topic, click on the `topic name` from the list.
+2. Navigate to the Subscriptions tab and click `Create subscription`.
 3. Select a Protocol:
 - For Email:
-  - Choose Email.
+  - Choose `Email`.
   - Enter a valid email address.
 - For SMS (phone number):
-  - Choose SMS.
+  - Choose `SMS`.
   - Enter a valid phone number in international format (e.g., +1234567890).
 
 
 4. Click Create Subscription.
 5. If you added an Email subscription:
 - Check the inbox of the provided email address.
-- Confirm the subscription by clicking the confirmation link in the email.
+- `Confirm` the subscription by clicking the confirmation link in the email.
 6. For SMS, the subscription will be immediately active after creation.
 
 <img width="914" height="357" alt="Image" src="https://github.com/user-attachments/assets/c7d57917-59fa-48cf-b4eb-127374a14972" />
 
 
 ### **Create the SNS Publish Policy**
-1. Open the IAM service in the AWS Management Console.
-2. Navigate to Policies → Create Policy.
-3. Click JSON and paste the JSON policy from gd_sns_policy.json file
-4. Replace REGION and ACCOUNT_ID with your AWS region and account ID.
-5. Click Next: Tags (you can skip adding tags).
-6. Click Next: Review.
-7. Enter a name for the policy (e.g., gd_sns_policy).
-8. Review and click Create Policy.
+1. Open the `IAM` service in the AWS Management Console.
+2. Navigate to `Policies` → `Create Policy`.
+3. Click `JSON` and **paste** the JSON policy from gd_sns_policy.json file
+4. Replace `REGION and ACCOUNT_ID` with your `AWS region and account ID`.
+5. Click `Next`: Tags (you can skip adding tags).
+6. Click `Next`: Review.
+7. Enter a `name` for the policy (e.g., gd_sns_policy).
+8. Review and click `Create Policy`.
 
 ### **Create an IAM Role for Lambda**
-1. Open the IAM service in the AWS Management Console.
-2. Click Roles → Create Role.
-3. Select AWS Service and choose Lambda.
+1. Open the `IAM `service in the AWS Management Console.
+2. Click `Roles` → `Create Role`.
+3. Select AWS Service and choose `Lambda`.
 4. Attach the following policies:
 - SNS Publish Policy (gd_sns_policy) (created in the previous step).
 - Lambda Basic Execution Role (AWSLambdaBasicExecutionRole) (an AWS managed policy).
-5. Click Next: Tags (you can skip adding tags).
-6. Click Next: Review.
-7. Enter a name for the role (e.g., gd_role).
-8. Review and click Create Role.
+5. Click `Next`: Tags (you can skip adding tags).
+6. Click `Next`: Review.
+7. Enter a `name` for the role (e.g., gd_role).
+8. Review and click `Create Role`.
 9. Copy and save the ARN of the role for use in the Lambda function.
 
 <img width="919" height="307" alt="Image" src="https://github.com/user-attachments/assets/c2a60ce3-76d4-4fa5-9db9-325f6146e605" />
 
 ### **Deploy the Lambda Function**
-1. Open the AWS Management Console and navigate to the Lambda service.
-2. Click Create Function.
-3. Select Author from Scratch.
-4. Enter a function name (e.g., gd_notifications).
-5. Choose Python 3.x as the runtime.
+1. Open the AWS Management Console and navigate to the `Lambda service`.
+2. Click `Create Function`.
+3. Select `Author from Scratch`.
+4. Enter a `function name` (e.g., gd_notifications).
+5. Choose `Python 3.x` as the runtime.
 6. Assign the IAM role created earlier (gd_role) to the function.
 7. Under the Function Code section:
-- Copy the content of the src/gd_notifications.py file from the repository.
-- Paste it into the inline code editor.
+- `Copy` the content of the src/gd_notifications.py file from the repository.
+- Paste it into the `inline code editor`(VScode).
 8. Under the Environment Variables section, add the following:
-- NBA_API_KEY: your NBA API key.
-- SNS_TOPIC_ARN: the ARN of the SNS topic created earlier.
+- `NBA_API_KEY: your NBA API key`.
+- `SNS_TOPIC_ARN`: the ARN of the SNS topic created earlier.
 9. Click Create Function.
 
   <img width="402" height="407" alt="get-API-key" src="https://github.com/user-attachments/assets/60518a68-5908-4e59-88ef-d8093ecad2f9" />
