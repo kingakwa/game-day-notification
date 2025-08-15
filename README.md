@@ -150,7 +150,22 @@ git push -u origin main
    
 <img width="878" height="311" alt="Image" src="https://github.com/user-attachments/assets/57998c18-f415-4560-b0cb-7b9f56435251" />
 
-<img width="866" height="340" alt="test-result" src="https://github.com/user-attachments/assets/f71dd16a-4e5d-4aba-a994-3afb149a5fca" />
+<img width="918" height="253" alt="Image" src="https://github.com/user-attachments/assets/04e71c07-f046-4e45-a1e7-19b26015e1e7" />
+
+After the test succeeds, your function will have made the API call, formatted the data, and published a message to your SNS topic. If your email is confirmed as a subscription to that topic, you will receive the notification in your inbox shortly.
+
+<img width="629" height="302" alt="Image" src="https://github.com/user-attachments/assets/874d00c1-95ff-4cf0-be71-abd1822d8f81" />
+
+## **Schedule with EventBridge**
+Go to `Amazon EventBridge` → `Scheduler` or Rules → `Create schedule`.
+Target = your `Lambda function`.
+Frequency = `daily/hourly` as needed.
+`Save`.
+You will receive the `notification` in your inbox base on your schedule set
+
+<img width="770" height="307" alt="SCHEDULE-SET" src="https://github.com/user-attachments/assets/2e3295d0-2385-494d-a57d-17fd581c686e" />
+
+<img width="613" height="283" alt="SCHUDULE-SUCCESS" src="https://github.com/user-attachments/assets/ba2cd01f-523e-4fdb-a786-b67a99e48844" />
 
 ### **What We Learned**
 1. Designing a notification system with AWS SNS and Lambda.
@@ -163,3 +178,7 @@ git push -u origin main
 1. Add NFL score alerts for extended functionality.
 2. Store user preferences (teams, game types) in DynamoDB for personalized alerts.
 3. Implement a web UI
+
+In conclusion, this project successfully automated scheduled workflows using AWS EventBridge for precise cron-based triggers, AWS Lambda for serverless execution of business logic, and Amazon SNS for real-time email notifications. The solution integrates seamlessly to run tasks at defined business-hour intervals, ensuring accuracy and eliminating manual effort. Cloud-native scalability ensures high reliability, while automation improves efficiency and reduces operational costs. This architecture demonstrates how EventBridge, Lambda, SNS, and supporting AWS services can work together to deliver a robust, maintainable, and future-ready automation framework
+
+Happy learning
